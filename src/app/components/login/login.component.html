@@ -1,0 +1,17 @@
+<!-- login.component.html -->
+
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg mt-10">
+  <h2 class="text-center text-2xl font-bold mb-4">Iniciar Sesión</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label for="username" class="block text-gray-700">Usuario:</label>
+      <input id="username" formControlName="username" type="text" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <div class="mb-4">
+      <label for="password" class="block text-gray-700">Contraseña:</label>
+      <input id="password" formControlName="password" type="password" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Ingresar</button>
+    <div *ngIf="errorMessage" class="mt-4 text-red-500">{{ errorMessage }}</div>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<!-- key generation component html -->
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg mt-10">
+  <h2 class="text-2xl font-bold mb-4 text-center">Generación de Llaves</h2>
+
+  <form [formGroup]="myForm" (ngSubmit)="generateKey()" class="mb-4">
+    <div class="mb-4">
+      <label for="name" class="block text-gray-700">Nombre de la Llave:</label>
+      <input 
+        id="name" 
+        formControlName="name" 
+        class="w-full p-2 border border-gray-300 rounded mt-2" 
+        placeholder="Introduce el nombre de la llave">
+    </div>
+
+    <button 
+      type="submit" 
+      class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors"
+      [disabled]="myForm.invalid">
+      Generar Llave
+    </button>
+  </form>
+
+  <div *ngIf="publicKey" class="mt-4">
+    <h2 class="text-lg font-bold text-gray-700">Clave Privada:</h2>
+    <textarea 
+      class="w-full p-2 border border-gray-300 rounded mt-2" 
+      readonly 
+      [value]="publicKey">
+    </textarea>
+  </div>
+</div>

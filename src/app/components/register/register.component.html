@@ -1,0 +1,29 @@
+<!-- register.component.html -->
+
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg mt-10">
+  <h2 class="text-2xl font-bold mb-4 text-center">Registrarse</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label for="username" class="block text-gray-700">Usuario:</label>
+      <input id="username" formControlName="username" type="text" class="w-full p-2 border border-gray-300 rounded mt-2">
+    </div>
+
+    <div class="mb-4">
+      <label for="password" class="block text-gray-700">Contraseña:</label>
+      <input id="password" formControlName="password" type="password" class="w-full p-2 border border-gray-300 rounded mt-2">
+    </div>
+
+    <div class="mb-4">
+      <label for="confirmPassword" class="block text-gray-700">Confirmar Contraseña:</label>
+      <input id="confirmPassword" formControlName="confirmPassword" type="password" class="w-full p-2 border border-gray-300 rounded mt-2">
+    </div>
+
+    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors">
+      Registrarse
+    </button>
+
+    <div *ngIf="successMessage" class="mt-4 text-green-500">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="mt-4 text-red-500">{{ errorMessage }}</div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<!-- file-sign.component.html -->
+
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg mt-10">
+  <h2 class="text-2xl font-bold mb-4 text-center">Firmar Archivo</h2>
+
+  <div class="mb-4">
+    <label for="fileSelect" class="block text-gray-700">Seleccionar Archivo:</label>
+    <select id="fileSelect" class="w-full p-2 border border-gray-300 rounded mt-2">
+      <option *ngFor="let file of files" [value]="file.id">{{ file.filename }}</option>
+    </select>
+  </div>
+
+  <div class="mb-4">
+    <label for="privateKey" class="block text-gray-700">Llave Privada:</label>
+    <textarea id="privateKey" class="w-full p-2 border border-gray-300 rounded mt-2"></textarea>
+  </div>
+
+  <button 
+    (click)="onSign()" 
+    class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors"
+    [disabled]="!selectedFileId || !privateKey">
+    Firmar
+  </button>
+
+  <div *ngIf="successMessage" class="mt-4 text-green-500">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="mt-4 text-red-500">{{ errorMessage }}</div>
+</div>
